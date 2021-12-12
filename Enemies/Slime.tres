@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Tiles/tile_slime.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+enemy_name = "Slime"
+health = 6
+attack = 2
+defense = 1
+speed = 1
+experience = 2
+sprite = ExtResource( 2 )
+opening_dialog = ""

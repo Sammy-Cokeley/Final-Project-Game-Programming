@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles/battle-background-sunny-hillsx4.png" type="Texture" id=2]
+[ext_resource path="res://Battle.gd" type="Script" id=3]
+[ext_resource path="res://battleGUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://runtime_data.tres" type="Resource" id=5]
 
 [node name="Battle" type="Node2D"]
+script = ExtResource( 3 )
+_runtime_data = ExtResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 256.0
@@ -14,9 +19,11 @@ __meta__ = {
 }
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 128, 112 )
+position = Vector2( 128, 80 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 2 )
 
 [node name="Enemy" parent="." instance=ExtResource( 1 )]
-position = Vector2( 128, 104 )
+position = Vector2( 128, 88 )
+
+[node name="Control" parent="." instance=ExtResource( 4 )]

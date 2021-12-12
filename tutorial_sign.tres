@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Dialogue.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+dialog_slides = [ "Monsters lurk in the tall grass", "Explore the nearby areas to defeat tougher monsters", "If you fear for your life then return home to rest" ]

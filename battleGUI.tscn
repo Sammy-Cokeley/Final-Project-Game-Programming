@@ -1,0 +1,174 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://PixelEmulator-xq08.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Tiles/GUI_tile.png" type="Texture" id=2]
+[ext_resource path="res://Tiles/health_tile.png" type="Texture" id=3]
+[ext_resource path="res://battleGUI.gd" type="Script" id=4]
+[ext_resource path="res://runtime_data.tres" type="Resource" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 10
+font_data = ExtResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+_runtime_data = ExtResource( 5 )
+
+[node name="TextBox" type="Sprite" parent="."]
+visible = false
+position = Vector2( 128, 192 )
+texture = ExtResource( 2 )
+
+[node name="DialogueLabel" type="RichTextLabel" parent="TextBox"]
+margin_left = -118.0
+margin_top = -24.0
+margin_right = 117.0
+margin_bottom = 24.0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerHealth" type="Sprite" parent="."]
+visible = false
+position = Vector2( 32, 32 )
+texture = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PlayerHealth"]
+margin_left = -22.0
+margin_top = -24.0
+margin_right = 70.0
+margin_bottom = 72.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Player
+HP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="PlayerHealth"]
+margin_left = -28.0
+margin_top = -14.0
+margin_right = 28.0
+margin_bottom = -13.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionSelection" type="Node2D" parent="."]
+visible = false
+
+[node name="ActionSelectionSprite" type="Sprite" parent="ActionSelection"]
+position = Vector2( 39.6757, 191.77 )
+scale = Vector2( 1.2465, 0.94677 )
+texture = ExtResource( 3 )
+
+[node name="PlayerActions" type="GridContainer" parent="ActionSelection"]
+margin_left = 12.0
+margin_top = 168.0
+margin_right = 66.0
+margin_bottom = 212.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Attack" type="Button" parent="ActionSelection/PlayerActions"]
+margin_right = 54.0
+margin_bottom = 12.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+button_mask = 0
+text = " Attack"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Defend" type="Button" parent="ActionSelection/PlayerActions"]
+margin_top = 16.0
+margin_right = 54.0
+margin_bottom = 28.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+button_mask = 0
+text = " Defend"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Flee" type="Button" parent="ActionSelection/PlayerActions"]
+margin_top = 32.0
+margin_right = 54.0
+margin_bottom = 44.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+button_mask = 0
+text = " Flee"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Button4" type="Button" parent="ActionSelection/PlayerActions"]
+visible = false
+margin_top = 48.0
+margin_right = 54.0
+margin_bottom = 60.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+button_mask = 0
+text = " Stats"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[connection signal="focus_entered" from="ActionSelection/PlayerActions/Attack" to="." method="_on_Attack_focus_entered"]
+[connection signal="focus_exited" from="ActionSelection/PlayerActions/Attack" to="." method="_on_Attack_focus_exited"]
+[connection signal="focus_entered" from="ActionSelection/PlayerActions/Defend" to="." method="_on_Defend_focus_entered"]
+[connection signal="focus_exited" from="ActionSelection/PlayerActions/Defend" to="." method="_on_Defend_focus_exited"]
+[connection signal="focus_entered" from="ActionSelection/PlayerActions/Flee" to="." method="_on_Flee_focus_entered"]
+[connection signal="focus_exited" from="ActionSelection/PlayerActions/Flee" to="." method="_on_Flee_focus_exited"]

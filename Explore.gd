@@ -1,28 +1,38 @@
 extends Node2D
 
 onready var player = $Player
-onready var healthLabel = $MarginContainer/Label
+onready var guiTextBox = $MarginContainer/TextBox
 
-func _ready():	
-	player.health = Global.player_health
+export(Resource) var enemy_list = enemy_list as EnemyList
+
+var inTallGrass = false
+var nextEnemy = ""
+
+func _ready():
 	player.position = Global.player_position
-	healthLabel.text = "HP: " + str(player.health)
+	determine_next_enemy()
+	GameEvents.emit_next_enemy(nextEnemy)
 
-func _on_Area2D_area_entered(area):
+func _on_Area2D_area_entered(_area):
 	Global.player_position = player.position
 	Global.player_position.x = 8
-	Global.player_health = player.health
 	Global.goto_scene("res://Start.tscn")
 
-func _on_AreaToBoss_area_entered(area):
+func _on_AreaToBoss_area_entered(_area):
 	Global.player_position = player.position
 	Global.player_position.x = 248
-	Global.player_health = player.health
 	Global.goto_scene("res://Boss.tscn")
 
-func _input(event):
-	if Input.is_action_pressed("Change_Scene"):
-		player.health -= 1
-		healthLabel.text = "HP: " + str(player.health)
-	if Input.is_action_pressed("Enter_battle"):
-		Global.goto_scene("res://Battle.tscn")
+func _on_BattleArea_area_entered(_area):
+	GameEvents.emit_signal("in_tall_grass", true)
+	print("entered battle area")
+
+
+func _on_BattleArea_area_exited(area):
+	GameEvents.emit_signal("out_of_tall_grass", false)
+	print("left battle area")
+
+func determine_next_enemy():
+	var rand = int(rand_range(0,5))
+	nextEnemy = enemy_list.enemy_list[rand]
+	print(nextEnemy)

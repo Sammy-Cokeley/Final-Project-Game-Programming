@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://StatsGrowth.gd" type="Script" id=1]
+
+[sub_resource type="Curve" id=1]
+min_value = 8.0
+max_value = 80.0
+_data = [ Vector2( 0, 8.65455 ), 0.0, 0.0, 0, 0, Vector2( 0.623188, 30.5455 ), 75.2727, 75.2727, 0, 0, Vector2( 1, 80 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=2]
+min_value = 5.0
+max_value = 80.0
+_data = [ Vector2( 0, 5 ), 0.0, 0.0, 0, 0, Vector2( 0.463768, 48.7273 ), 81.7247, 81.7247, 0, 0, Vector2( 1, 80 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=3]
+min_value = 10.0
+max_value = 100.0
+_data = [ Vector2( 0, 10 ), 0.0, 0.0, 0, 0, Vector2( 1, 100 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=4]
+min_value = 1.0
+max_value = 120.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.714976, 63.2727 ), 0.0, 0.0, 0, 0, Vector2( 1, 120 ), 0.0, 0.0, 0, 0 ]
+
+[resource]
+script = ExtResource( 1 )
+max_health_curve = SubResource( 3 )
+attack_curve = SubResource( 1 )
+defense_curve = SubResource( 2 )
+speed_curve = SubResource( 4 )

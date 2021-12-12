@@ -1,11 +1,15 @@
-extends Node2D
+extends Resource
 
-var enemy_name = "ghost"
-var health = 10
-var attack = 2
-var defense = 3
-var speed = 1
-var experience = 2
+class_name Enemy
 
-func reward_experience():
-	Global.player_experience += experience
+export (String) var enemy_name
+export (int) var health
+export (int) var attack
+export (int) var defense
+export (int) var speed
+export (int) var experience
+export (Texture) var sprite
+export (String) var opening_dialog 
+
+func turn():
+	return "attack"
